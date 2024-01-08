@@ -33,8 +33,8 @@ export default class Count extends Component {
                 <option value={4}>4</option>
               </select>
               &nbsp;
-              <button onClick={this.increment}>+</button>&nbsp;
-              <button onClick={this.decrement}>-</button>&nbsp;
+              <button onClick={this.incrementFunction}>+</button>&nbsp;
+              <button onClick={this.decrementFunction}>-</button>&nbsp;
             </div>
           );
     }
