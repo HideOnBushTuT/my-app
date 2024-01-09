@@ -1,4 +1,4 @@
-export default ({ toggleAll, untoggleAll }) => {
+export default ({ isAllCompleted, toggleAll, untoggleAll }) => {
     const checkboxHandler = (event) => {
         if (event.target.checked) {
             toggleAll()
@@ -6,11 +6,11 @@ export default ({ toggleAll, untoggleAll }) => {
             untoggleAll()
         }
     }
-
+    console.log(isAllCompleted)
     return (
         <div>
             <label>
-            <input type="checkbox" onChange={checkboxHandler}  />
+            <input type="checkbox" checked={isAllCompleted} onChange={checkboxHandler}  />
             TOGGLE ALL
             </label>
         </div>

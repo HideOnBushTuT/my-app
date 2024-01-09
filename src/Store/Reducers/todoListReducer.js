@@ -23,23 +23,26 @@ export default function todoListReducer(preState = initState, action) {
                 ...preState,
                 todos: preState.todos.map((todo) => {
                     if (todo.id == todoId) {
-                        return { isCompleted: !todo.isCompleted, ...todo }
+                        console.log(todo, todo.isCompleted, !todo.isCompleted)
+                        const newTodo = { ...todo, isCompleted: !todo.isCompleted }
+                        console.log(newTodo)
+                        return newTodo
                     }
-                    return todo
+                    return { ...todo }
                 })
             }
         case TOGGLE_ALL:
             return {
                 ...preState,
                 todos: preState.todos.map((todo) => {
-                  return  { isCompleted: true, ...todo }
+                  return  { ...todo, isCompleted: true }
                 })
             }
         case UNTOGGLE_ALL:
             return {
                 ...preState,
                 todos: preState.todos.map((todo) => {
-                    return { isCompleted: false, ...todo }
+                    return { ...todo, isCompleted: false }
                 })
             }
         default: return preState

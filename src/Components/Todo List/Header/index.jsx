@@ -5,4 +5,13 @@ import {
 } from "../../../Store/Action/todo"
 import TodoHeader from "./TodoHeader"
 
-export default connect((state) => {}, { toggleAll, untoggleAll })(TodoHeader)
+const mapStateToProps = (state) => {
+    const completedCount = state.todos.todos.filter((todo) => todo.isCompleted).length
+    const allCount = state.todos.todos.length
+    return {
+        isAllCompleted: completedCount == allCount
+    }
+}
+
+
+export default connect(mapStateToProps, { toggleAll, untoggleAll })(TodoHeader)
