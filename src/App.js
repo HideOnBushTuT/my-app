@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import Count from './Components';
+import React, { Component } from 'react'
+import Count from './Components'
 
-class App extends React.Component {
+export default class App extends Component {
   render() {
-    return <Count />
+    return <div>
+      <Count />
+      <Count />
+    </div>
   }
 }
-
-export default App;
