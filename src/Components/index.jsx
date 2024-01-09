@@ -5,7 +5,7 @@ import {
     decrementAction
 } from "../Store/Action/count"
 
-const mapStateToProps = (state) => ({ count: state })
+const mapStateToProps = (state) => ({ count: state.count })
 const mapDispatchToProps = (dispatch) => ({
     increment: (number) => {
         dispatch(incrementAction(number))
