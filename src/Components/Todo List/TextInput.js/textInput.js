@@ -3,9 +3,6 @@ export default class TextInput extends Component {
 
     textHandler = (event) => {
         const text = event.target.value
-        if (text.length == 0) {
-            return
-        }
         this.props.textChange(text)
     }
 
