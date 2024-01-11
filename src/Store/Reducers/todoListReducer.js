@@ -2,11 +2,13 @@ import {
     ADD_TODO,
     TOGGLE_TODO,
     TOGGLE_ALL,
-    UNTOGGLE_ALL
+    UNTOGGLE_ALL,
+    TEXT_CHANGE
 } from "../constants";
 
 const initState = {
-    todos: []
+    todos: [],
+    text: ""
 }
 export default function todoListReducer(preState = initState, action) {
     switch (action.type) {
@@ -15,7 +17,8 @@ export default function todoListReducer(preState = initState, action) {
            let newTodo = { id: count, todo: action.data, isCompleted: false }
            return {
             ...preState,
-            todos: [newTodo, ...preState.todos]
+            todos: [newTodo, ...preState.todos],
+            text: ""
            }
         case TOGGLE_TODO:
             let todoId = action.data
@@ -45,6 +48,10 @@ export default function todoListReducer(preState = initState, action) {
                     return { ...todo, isCompleted: false }
                 })
             }
+        case TEXT_CHANGE: return {
+            ...preState,
+            text: action.data
+        }
         default: return preState
     }
 }
