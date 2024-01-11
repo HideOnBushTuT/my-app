@@ -10,7 +10,7 @@ export default ({ todos, toggle }) => {
                 todos.map(({ id, todo, isCompleted }) => {
                     return (
                         <div key={id}>
-                        <label>
+                        <label style={{ textDecoration: isCompleted ? 'line-through' : null }}>
                             <input type="checkbox" name={id} checked={isCompleted} onChange={checkboxHandler} />
                                 {todo}
                         </label>
